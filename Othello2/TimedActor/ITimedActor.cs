@@ -16,6 +16,6 @@ namespace TimedActor.Interfaces
     /// </summary>
     public interface ITimedActor : IActor
     {
-        Task RegisterReminder();
+        Task RegisterReminder(String nodeName);
     }
 }

@@ -15,7 +15,7 @@ namespace TimedActor
             await base.RunAsync(cancellationToken);
 
             var proxy = ActorProxy.Create<ITimedActor>(new ActorId(0));
-            await proxy.RegisterReminder();
+            await proxy.RegisterReminder(this.Context.NodeContext.NodeName);
         }
 
         public SchedulingActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo, Func<ActorService, ActorId, ActorBase> actorFactory = null, Func<ActorBase, IActorStateProvider, IActorStateManager> stateManagerFactory = null, IActorStateProvider stateProvider = null, ActorServiceSettings settings = null)

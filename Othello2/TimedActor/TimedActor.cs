@@ -22,6 +22,8 @@ namespace TimedActor
     [StatePersistence(StatePersistence.Persisted)]
     internal class TimedActor : Actor, ITimedActor, IRemindable
     {
+        private String _nodeName;
+
         /// <summary>
         /// Initializes a new instance of TimedActor
         /// </summary>
@@ -35,7 +37,7 @@ namespace TimedActor
 
         private async Task UpdateCount()
         {
-            Debug.Print($"Starting: {DateTime.Now.ToLongTimeString()}");
+            Debug.Print($"Starting [{_nodeName}]: {DateTime.Now.ToLongTimeString()}");
 
             Int32 CurrentCount = await this.StateManager.GetStateAsync<int>("count");
 
@@ -45,7 +47,7 @@ namespace TimedActor
 
             Thread.Sleep(30000);
 
-            Debug.Print($"Finishing: {DateTime.Now.ToLongTimeString()}");
+            Debug.Print($"Finishing [{_nodeName}]: {DateTime.Now.ToLongTimeString()}");
         }
 
         public async Task ReceiveReminderAsync(string reminderName, byte[] state, TimeSpan dueTime, TimeSpan period)
@@ -58,10 +60,12 @@ namespace TimedActor
             }
         }
 
-        public async Task RegisterReminder()
+        public async Task RegisterReminder(String nodeName)
         {
             try
             {
+                _nodeName = nodeName;
+
                 var previousRegistration = GetReminder("UpdateCount");
                 await UnregisterReminderAsync(previousRegistration);
             }

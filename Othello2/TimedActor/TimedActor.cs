@@ -7,6 +7,7 @@ using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Microsoft.ServiceFabric.Actors.Client;
 using TimedActor.Interfaces;
+using System.Diagnostics;
 
 namespace TimedActor
 {
@@ -34,6 +35,8 @@ namespace TimedActor
 
         private async Task UpdateCount()
         {
+            Debug.Print($"Starting: {DateTime.Now.ToLongTimeString()}");
+
             Int32 CurrentCount = await this.StateManager.GetStateAsync<int>("count");
 
             CurrentCount++;
@@ -41,6 +44,8 @@ namespace TimedActor
             await this.StateManager.AddOrUpdateStateAsync("count", CurrentCount, (key, value) => CurrentCount > value ? CurrentCount : value);
 
             Thread.Sleep(30000);
+
+            Debug.Print($"Finishing: {DateTime.Now.ToLongTimeString()}");
         }
 
         public async Task ReceiveReminderAsync(string reminderName, byte[] state, TimeSpan dueTime, TimeSpan period)
@@ -62,7 +67,7 @@ namespace TimedActor
             }
             catch (ReminderNotFoundException) { }
 
-            var reminderRegistration = await RegisterReminderAsync("UpdateCount", null, TimeSpan.FromMinutes(0), TimeSpan.FromSeconds(20));
+            var reminderRegistration = await RegisterReminderAsync("UpdateCount", null, TimeSpan.FromMinutes(0), TimeSpan.FromSeconds(10));
         }
 
         /// <summary>

@@ -20,7 +20,7 @@
                                     AzureActiveDirectory="true"
                                     ServerCertThumbprint="0123456789012345678901234567890123456789" />
   -->
-  <ClusterConnectionParameters ConnectionEndpoint="" />
+  <ClusterConnectionParameters ConnectionEndpoint="kk-dev-fabric2208b.northeurope.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="EED20B21F69A1D4698CA300E3ECC0BC8FD770147" FindType="FindByThumbprint" FindValue="EED20B21F69A1D4698CA300E3ECC0BC8FD770147" StoreLocation="CurrentUser" StoreName="My" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
   <StartupServiceParameterFile Path="..\StartupServiceParameters\Cloud.xml" />
   <CopyPackageParameters CompressPackage="true" />

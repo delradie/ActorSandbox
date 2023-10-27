@@ -21,6 +21,9 @@
         <Program>TimedActor.exe</Program>
       </ExeHost>
     </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="ApplicationInsightsInstrumentationKey" Value="" />
+    </EnvironmentVariables>
   </CodePackage>
   <ConfigPackage Name="Config" Version="1.0.0" />
   <Resources>

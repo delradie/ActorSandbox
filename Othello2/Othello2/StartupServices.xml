@@ -4,11 +4,19 @@
     <Parameter Name="TimedActorService_PartitionCount" DefaultValue="10" />
     <Parameter Name="TimedActorService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="TimedActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="UnderstudyActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="UnderstudyActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="UnderstudyActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <Services>
     <Service Name="TimedActorService" GeneratedIdRef="0ef3b689-c11b-4a71-a7de-a9e742bfbf7d|Persisted">
       <StatefulService ServiceTypeName="TimedActorServiceType" TargetReplicaSetSize="[TimedActorService_TargetReplicaSetSize]" MinReplicaSetSize="[TimedActorService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[TimedActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="UnderstudyActorService" GeneratedIdRef="bf04a6fa-f544-4b56-bfc9-d79b079ae8b3|Persisted">
+      <StatefulService ServiceTypeName="UnderstudyActorServiceType" TargetReplicaSetSize="[UnderstudyActorService_TargetReplicaSetSize]" MinReplicaSetSize="[UnderstudyActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[UnderstudyActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
     <!-- The section below creates instances of service types, when an instance of this 

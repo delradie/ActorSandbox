@@ -1,13 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
-using Microsoft.ServiceFabric.Actors.Runtime;
 using Microsoft.ServiceFabric.Actors.Client;
-using TimedActor.Interfaces;
+using Microsoft.ServiceFabric.Actors.Runtime;
+
 using System.Diagnostics;
+
+using TimedActor.Interfaces;
+
+using Understudy.Interfaces;
 
 namespace TimedActor
 {
@@ -29,9 +28,21 @@ namespace TimedActor
         /// </summary>
         /// <param name="actorService">The Microsoft.ServiceFabric.Actors.Runtime.ActorService that will host this actor instance.</param>
         /// <param name="actorId">The Microsoft.ServiceFabric.Actors.ActorId for this actor instance.</param>
-        public TimedActor(ActorService actorService, ActorId actorId) 
+        public TimedActor(ActorService actorService, ActorId actorId)
             : base(actorService, actorId)
         {
+        }
+
+        private async Task SignalEvent(String eventName, Dictionary<String, String> additionalData)
+        {
+            // Create a randomly distributed actor ID
+            ActorId actorId = ActorId.CreateRandom();
+
+            // This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+            IUnderstudy myActor = ActorProxy.Create<IUnderstudy>(actorId);
+
+            // This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+            await myActor.SignalEvent(eventName, additionalData);
         }
 
 
@@ -42,6 +53,14 @@ namespace TimedActor
             Int32 CurrentCount = await this.StateManager.GetStateAsync<int>("count");
 
             CurrentCount++;
+
+            Dictionary<String, String> AdditionalData = new Dictionary<String, String>()
+            {
+                { "Count", CurrentCount.ToString()},
+                { "NodeName", this._nodeName},
+            };
+
+            await SignalEvent("CountSetOnTimer", AdditionalData);
 
             await this.StateManager.AddOrUpdateStateAsync("count", CurrentCount, (key, value) => CurrentCount > value ? CurrentCount : value);
 

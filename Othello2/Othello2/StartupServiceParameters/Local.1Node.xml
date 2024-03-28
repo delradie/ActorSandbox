@@ -7,5 +7,8 @@
     <Parameter Name="UnderstudyActorService_PartitionCount" Value="1" />
     <Parameter Name="UnderstudyActorService_TargetReplicaSetSize" Value="1" />
     <Parameter Name="UnderstudyActorService_MinReplicaSetSize" Value="1" />
+    <Parameter Name="BusActorService_PartitionCount" Value="1" />
+    <Parameter Name="BusActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="BusActorService_MinReplicaSetSize" Value="1" />
   </Parameters>
 </StartupServices>

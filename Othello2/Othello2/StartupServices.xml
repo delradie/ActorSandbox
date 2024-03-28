@@ -7,6 +7,9 @@
     <Parameter Name="UnderstudyActorService_PartitionCount" DefaultValue="10" />
     <Parameter Name="UnderstudyActorService_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="UnderstudyActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="BusActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="BusActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="BusActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <Services>
     <Service Name="TimedActorService" GeneratedIdRef="0ef3b689-c11b-4a71-a7de-a9e742bfbf7d|Persisted">
@@ -17,6 +20,11 @@
     <Service Name="UnderstudyActorService" GeneratedIdRef="bf04a6fa-f544-4b56-bfc9-d79b079ae8b3|Persisted">
       <StatefulService ServiceTypeName="UnderstudyActorServiceType" TargetReplicaSetSize="[UnderstudyActorService_TargetReplicaSetSize]" MinReplicaSetSize="[UnderstudyActorService_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[UnderstudyActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="BusActorService" GeneratedIdRef="14a28153-9250-4149-a0e3-d5f65ebd15a5|Persisted">
+      <StatefulService ServiceTypeName="BusActorServiceType" TargetReplicaSetSize="[BusActorService_TargetReplicaSetSize]" MinReplicaSetSize="[BusActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[BusActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
     <!-- The section below creates instances of service types, when an instance of this 

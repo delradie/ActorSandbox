@@ -7,9 +7,13 @@ Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "Othello2", "Othello2\Othell
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimedActor", "TimedActor\TimedActor.csproj", "{F3A16073-C0C8-4FFB-ACB8-185DB48C3B15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Understudy", "Understudy\Understudy.csproj", "{D3A222E4-F11D-4CC9-948F-59ACB52A655F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Understudy", "Understudy\Understudy.csproj", "{D3A222E4-F11D-4CC9-948F-59ACB52A655F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Understudy.Interfaces", "Understudy.Interfaces\Understudy.Interfaces.csproj", "{EBC489F7-BD6C-4763-9EC5-DB2DE024AAA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Understudy.Interfaces", "Understudy.Interfaces\Understudy.Interfaces.csproj", "{EBC489F7-BD6C-4763-9EC5-DB2DE024AAA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusActor", "BusService\BusActor\BusActor.csproj", "{DE61A83C-8D38-4E0D-AF56-C12751694662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusActor.Interfaces", "BusService\BusActor.Interfaces\BusActor.Interfaces.csproj", "{52AD4BDB-2917-402D-A67F-0855497AA397}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +59,22 @@ Global
 		{EBC489F7-BD6C-4763-9EC5-DB2DE024AAA2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBC489F7-BD6C-4763-9EC5-DB2DE024AAA2}.Release|x64.ActiveCfg = Release|Any CPU
 		{EBC489F7-BD6C-4763-9EC5-DB2DE024AAA2}.Release|x64.Build.0 = Release|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Debug|x64.Build.0 = Debug|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Release|x64.ActiveCfg = Release|Any CPU
+		{DE61A83C-8D38-4E0D-AF56-C12751694662}.Release|x64.Build.0 = Release|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Debug|x64.Build.0 = Debug|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Release|x64.ActiveCfg = Release|Any CPU
+		{52AD4BDB-2917-402D-A67F-0855497AA397}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
